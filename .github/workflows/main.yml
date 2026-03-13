@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    # Setup Node for React
+    # Setup Node
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
@@ -22,13 +23,13 @@ jobs:
     # Install React dependencies
     - name: Install Frontend Dependencies
       run: |
-        cd studentUi
+        cd StudentUi
         npm install
 
-    # Build React App
-    - name: Build React App
+    # Build React app
+    - name: Build React
       run: |
-        cd studentUi
+        cd StudentUi
         npm run build
 
     # Setup .NET
@@ -37,14 +38,14 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    # Restore backend packages
-    - name: Restore Backend Dependencies
+    # Restore backend
+    - name: Restore Backend
       run: |
-        cd studentApi
+        cd StudentApi
         dotnet restore
 
     # Build backend
-    - name: Build .NET API
+    - name: Build Backend
       run: |
-        cd studentApi
+        cd StudentApi
         dotnet build --configuration Release
