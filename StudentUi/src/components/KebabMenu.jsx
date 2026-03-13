@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import kebabIcon from "../assets/kebab-icon.png";
+import kebabIcon from "../assets/kebab-Icon.png";
 import "../assets/styles/KebabMenu.css";
 import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
