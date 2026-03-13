@@ -1,0 +1,85 @@
+.student-list-section{
+    margin: 50px
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.header h1{
+    color: black;
+    font-weight: 600;
+}
+
+.create-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+    padding: 10px 16px;
+    background:#fff;
+    text-decoration: none;
+    color:#0f172a;                
+    border:1px solid #054F5A;
+    border-radius:8px;
+    font-size:14px;
+    cursor:pointer;
+    transition: background-color .15s ease;
+}
+
+
+.create-button:hover{
+  background:#054F5A;
+  border-color:#d1d5db;
+}
+.create-button:hover span{
+  color:#fff;
+}
+
+.create-button:hover img {
+    content: url("src/assets/add2.png");
+}
+
+
+.list-table{
+    background:#fff;
+    border-radius:10px;
+    padding:10px;
+}
+
+.list-table table{
+    width: 100%;
+    border-collapse: collapse;
+    border:1px solid #054f5a77;
+    text-align: center;
+    background:#fff;
+}
+
+.list-table thead th{
+  background:#054F5A;
+  color:#fff;
+  font-weight:600;
+  font-size:14px;
+  padding:10px 8px;
+  border:1px solid #eef2f7;
+}
+
+
+.list-table tbody td{
+  padding:10px 8px;
+  font-size:14px;
+  border-top:1px solid #eef2f7;
+}
+
+
+tbody tr:nth-child(even) {
+            background-color: #054f5a28;
+}
+
+.error-msg{
+    color: red;
+    margin: 16px 10px;
+    font-size: 18px;
+}
