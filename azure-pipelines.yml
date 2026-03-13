@@ -1,0 +1,39 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+# Install Node.js
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: Install Node
+
+# Build React frontend
+- script: |
+    cd studentUi
+    npm install
+    npm run build
+  displayName: Build React Frontend
+
+# Install .NET SDK
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+  displayName: Install .NET
+
+# Restore backend dependencies
+- script: |
+    cd studentApi
+    dotnet restore
+  displayName: Restore Backend
+
+# Build backend
+- script: |
+    cd studentApi
+    dotnet build --configuration Release
+  displayName: Build Backend
