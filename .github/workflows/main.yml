@@ -1,0 +1,50 @@
+name: Build React + .NET Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Setup Node for React
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    # Install React dependencies
+    - name: Install Frontend Dependencies
+      run: |
+        cd studentUi
+        npm install
+
+    # Build React App
+    - name: Build React App
+      run: |
+        cd studentUi
+        npm run build
+
+    # Setup .NET
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    # Restore backend packages
+    - name: Restore Backend Dependencies
+      run: |
+        cd studentApi
+        dotnet restore
+
+    # Build backend
+    - name: Build .NET API
+      run: |
+        cd studentApi
+        dotnet build --configuration Release
